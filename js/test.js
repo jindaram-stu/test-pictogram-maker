@@ -99,7 +99,7 @@ function drawPositionY(position) {
   return Math.round(position * testCanvasHeight)
 }
 
-
+try {
 const hands = new Hands({locateFile: (file) => {
   return `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`;
 }});
@@ -120,6 +120,10 @@ const camera = new Camera(videoElement, {
   width: 400,
   height: 300
 });
+
+} catch (NotFoundError) {
+  alert("카메라를 찾을 수 없습니다.")
+}
 
 
 camera.start();
