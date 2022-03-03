@@ -1,6 +1,6 @@
 
-const testCanvasWidth = 640
-const testCanvasHeight = 480
+const testCanvasWidth = 400
+const testCanvasHeight = 300
 
 const videoElement = document.getElementsByClassName('input_video')[0];
 const canvasElement = document.getElementsByClassName('output_canvas')[0];
@@ -117,8 +117,8 @@ const camera = new Camera(videoElement, {
     await hands.send({image: videoElement});
     
   },
-  width: 640,
-  height: 480
+  width: 400,
+  height: 300
 });
 
 
