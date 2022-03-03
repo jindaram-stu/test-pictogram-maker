@@ -120,10 +120,10 @@ const camera = new Camera(videoElement, {
   width: 400,
   height: 300
 });
-
+camera.start();
 } catch (NotFoundError) {
   alert("카메라를 찾을 수 없습니다.")
 }
 
 
-camera.start();
+
