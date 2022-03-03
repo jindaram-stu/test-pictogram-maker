@@ -7,8 +7,8 @@ const canvasElement = document.getElementsByClassName('output_canvas')[0];
 const testCanvasElement = document.getElementsByClassName('test_canvas')[0];
 const testCanvasCtx = testCanvasElement.getContext('2d');
 const canvasCtx = canvasElement.getContext('2d');
-
-console.log("dd")
+let stat = document.getElementById("status");
+stat.innerText = "Loading..";
 
 
 
@@ -69,6 +69,7 @@ function onResults(results) {
       drawConnectors(canvasCtx, landmarks, HAND_CONNECTIONS,
                      {color: '#00FF00', lineWidth: 5});
       drawLandmarks(canvasCtx, landmarks, {color: '#FF0000', lineWidth: 2});
+      stat.innerText = "Loading Success";
     }
   }
   canvasCtx.restore();
@@ -80,7 +81,6 @@ function drawLine(startX,startY,endX,endY) {
   let convertStartY = Math.round(testCanvasHeight * startY); 
   let convertEndX = Math.round(testCanvasWidth * endX); 
   let convertEndY = Math.round(testCanvasHeight * endY); 
-  console.log(convertStartX);
 
   testCanvasCtx.strokeStyle = '#ff0000';
   testCanvasCtx.lineCap = "round";
@@ -103,6 +103,7 @@ function drawPositionY(position) {
 const hands = new Hands({locateFile: (file) => {
   return `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`;
 }});
+
 hands.setOptions({
   maxNumHands: 1,
   modelComplexity: 1,
@@ -114,9 +115,11 @@ hands.onResults(onResults);
 const camera = new Camera(videoElement, {
   onFrame: async () => {
     await hands.send({image: videoElement});
+    
   },
   width: 640,
   height: 480
 });
+
 
 camera.start();
