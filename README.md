@@ -7,5 +7,5 @@
 - Hands (손)
 
 ### │ 프로토타입
-[프로토타입 페이지](https://jindaram-stu.github.io/test-pictogram-maker/, "Prototype")
+[프로토타입 페이지](https://jindaram-stu.github.io/test-pictogram-maker/ "Prototype")
 
