@@ -117,8 +117,8 @@ const camera = new Camera(videoElement, {
     await hands.send({image: videoElement});
     
   },
-  width: 400,
-  height: 300
+  width: 923
+  
 });
 camera.start();
 } catch (NotFoundError) {
